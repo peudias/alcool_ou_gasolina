@@ -11,6 +11,43 @@ class _AlcoolOUGasolinaState extends State<AlcoolOUGasolina> {
 
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
+  String _TextoResultado = "";
+
+  void _calcular(){
+    double? precoAlcool = double.tryParse( _controllerAlcool.text);
+    double? precoGasolina = double.tryParse( _controllerGasolina.text);
+
+    if(precoAlcool == null || precoGasolina == null){
+      setState(() {
+        _TextoResultado = "Número inválido, digite números maiores que '0' e utilizando o ponto (.)";
+      });
+    }else{
+      /*
+      * Se o preço do álcool dividido pelo preço da gasolina for >= 0.7
+      * é melhor abastecer com a gasolina
+      * senão é melhor utilizar o álcool
+      */
+
+      if((precoAlcool/precoGasolina) >= 0.7){
+        setState(() {
+          _TextoResultado = "É melhor abastecer com a GASOLINA.";
+        });
+      }else{
+        setState(() {
+          _TextoResultado = "É melhor abastecer com o ÁLCOOL.";
+        });
+      }
+    }
+
+    //função para limpar os campos onde o usuário digita o valor
+    //_limparCampos();
+
+  }
+
+  void _limparCampos(){
+    _controllerGasolina.text = "";
+    _controllerAlcool.text = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +122,7 @@ class _AlcoolOUGasolinaState extends State<AlcoolOUGasolina> {
               Padding(
                 padding: EdgeInsets.only(top: 30),
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: _calcular,
                   child: Text(
                     "Calcular",
                     style: TextStyle(
@@ -103,7 +140,7 @@ class _AlcoolOUGasolinaState extends State<AlcoolOUGasolina> {
               Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: Text(
-                  "Resultado",
+                  _TextoResultado,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
