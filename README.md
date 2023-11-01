@@ -20,15 +20,17 @@ Desenvolvido inicialmente para o modelo `Android`, através do `Android Studio` 
 
 <p align="center">
   
-<img src="https://" width="360" height="800">
+<img src="https://github.com/phpdias/alcool_ou_gasolina/blob/main/images/telainicial.jpg" width="360" height="800">
 
 </p>
 
 ## Situações possíveis
 
 <p align="center">
+
+<img src="https://github.com/phpdias/alcool_ou_gasolina/blob/main/images/ex1.jpg" width="360" height="800">
   
-<img src="https://" width="1000" height="800">
+<img src="https://github.com/phpdias/alcool_ou_gasolina/blob/main/images/ex2.jpg" width="360" height="800">
 
 </p> 
 
